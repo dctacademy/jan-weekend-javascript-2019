@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <script>
+        const name = prompt('Enter your name')
+        console.log('Welcome to the Guess Game ' + name)
+        // var targetNumber  
+        const targetNumber = Math.ceil(Math.random() * 100)
+        console.log(targetNumber)
+        const maxGuess = 10
+        for (let playerGuess = 0; playerGuess < maxGuess; playerGuess++) {
+            const guessNumber = Number(prompt('Guess My Number'))
+            if (guessNumber < targetNumber) {
+                console.log('OOPS!!! Your guess was low')
+            } else if (guessNumber > targetNumber) {
+                console.log('OOPS!!! Your guess was high')
+            } else if (guessNumber === targetNumber) {
+                console.log('Good Job, ' + name + '!. You guessed my number')
+                break
+            }
+        }
+
+
+            // camel casing - targetNumber 
+            // snake casing - target_number 
+            // pascal casing - TargetNumber
+            // cobol casing - _targetNumber
+            // kebab casing - target-number
+    </script>
+</body>
+
+</html>
