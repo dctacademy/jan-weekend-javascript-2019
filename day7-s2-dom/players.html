@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Dream 11 </title>
+</head>
+<body>
+    <h2>Listing Players - <span id="count"></span></h2>
+    <ul id="list">
+    </ul>
+
+    <script>
+        const players = ['sachin', 'dhoni', 'virat', 'rahul', 'saurav', 'jadeja', 'yuvraj', 'kumble', 'ashwin', 'zaheer', 'srinath']
+        const countHandle = document.getElementById('count')
+        const listHandle = document.getElementById('list')
+
+        countHandle.innerHTML = players.length
+
+        players.forEach(function(playerName){
+            // used for creating tags
+            const li = document.createElement('li') // <li> </li>
+            li.textContent = playerName // <li> playerName </li>
+            listHandle.appendChild(li)
+        })
+    </script>
+</body>
+</html>

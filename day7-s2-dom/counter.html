@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> COunter </title>
+    </head>
+    <body>
+        <h1 id="count">0</h1>
+
+        <button id="upBtn"> UP </button> <button> DOWN </button> <button> RESET</button>
+
+        <script type="text/javascript">
+            const upBtnHandle = document.getElementById('upBtn')
+            const countHandle = document.getElementById('count')
+            let countValue = 0 
+            
+            upBtnHandle.addEventListener('click', function(){
+                countValue++ 
+                countHandle.innerHTML = countValue
+            })
+        </script>
+    </body>
+</html>
