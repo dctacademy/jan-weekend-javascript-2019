@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Listing Users</title>
+</head>
+
+<body>
+    <h2>Listing Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th> # </th>
+                <th> Name </th>
+                <th> username </th>
+                <th> Email </th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+          
+        </tbody>
+    </table>
+    <script>
+        const tableBody = document.getElementById('tableBody')
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', 'http://jsonplaceholder.typicode.com/users')
+        xhr.send()
+
+        // function buildTD(user) {
+        //     let tds = ''
+        //     for(let key in user) {
+        //         if(['id', 'name', 'username', 'email'].includes(key)) {
+        //             tds += `<td> ${user[key]} </td>`
+        //         }
+        //     }
+        //     return tds
+        // }
+        
+        xhr.onload = function () {
+            const users = JSON.parse(xhr.responseText)
+            let output = '' 
+            users.forEach(function(user){
+                // const row = `<tr> ${buildTD(user)}</tr>`
+                const row = `<tr> <td>${user.id} </td> <td> ${user.name}</td> <td> ${user.username}</td> <td>${user.email}</td> </tr>`
+                output += row
+            })
+            tableBody.innerHTML = output 
+        }   
+    </script>
+</body>
+
+</html>

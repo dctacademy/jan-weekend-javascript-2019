@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Listing Users</title>
+    </head>
+    <body>
+        <h2>Listing Users</h2>
+        <ul id="list"></ul>
+        <script>
+            const listHandle = document.getElementById('list')
+            const xhr = new XMLHttpRequest()
+            // Http Methods = GET(READ) POST(CREATE) PUT(UPDATE) DELETE(DESTROY)
+            xhr.open('GET', 'http://jsonplaceholder.typicode.com/users')
+            xhr.send()
+            xhr.onload = function() {
+                // json type is string - inside can be an object
+                console.log(typeof xhr.responseText)
+                const users = JSON.parse(xhr.responseText)
+                users.forEach(function(user){
+                    const li = document.createElement('li') // <li> </li>
+                    // li.textContent 
+                    const text = document.createTextNode(user.name) // text
+                    li.appendChild(text) // <li> text </li> 
+                    listHandle.appendChild(li) // <ul> <li> text </li> </ul>
+                })
+            }   
+        </script>
+    </body>
+</html>
